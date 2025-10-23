@@ -19,13 +19,6 @@ export const MyPosts = ({ token }) => {
             <h2 className="title is-4">{post.title}</h2>
           </Link>
           <p>{post.content}</p>
-          <button
-            className="button is-link"
-            type="button"
-            onClick={() => navigate(`/edit-post/${post.id}`)}
-          >
-            Edit
-          </button>
         </div>
       ))}
     </>
