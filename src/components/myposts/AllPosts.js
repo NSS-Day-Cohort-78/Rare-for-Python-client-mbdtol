@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 import { FetchAllPosts } from "../../managers/MyPostsManager"
 
 export const AllPosts = ({ token }) => {
@@ -16,7 +17,9 @@ export const AllPosts = ({ token }) => {
 			{posts.map((post) =>
 				post.approved && new Date(post.publication_date) <= new Date() ? (
 					<div key={post.id} className="box">
-						<h2 className="title is-4">{post.title}</h2>
+						<Link to={`/post/${post.id}`}>
+							<h2 className="title is-4">{post.title}</h2>
+						</Link>
 						<p>{post.category}</p>
 						<p>{post.author}</p>
 					</div>

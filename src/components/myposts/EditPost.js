@@ -49,7 +49,7 @@ export const EditPostForm = () => {
     };
 
     EditPost(editedPost).then(() => {
-      navigate(`/post-details`);
+      navigate(`/post/${post.id}`);
     });
   };
 
@@ -134,7 +134,7 @@ export const EditPostForm = () => {
           <button
             className="button is-danger"
             type="button"
-            onClick={() => navigate("/myposts")}
+            onClick={() => navigate(-1)}
           >
             Cancel
           </button>
