@@ -17,7 +17,7 @@ export const ApplicationViews = ({ token, setToken }) => {
 					{/* Add Routes here */}
 					<Route path="/myposts" element={<MyPosts token={token} />} />
 					<Route path="/allposts" element={<AllPosts token={token} />} />
-					<Route path="/post-details" element={<PostDetails token={token} />} />
+					<Route path="/post/:postId" element={<PostDetails token={token} />} />
 					<Route
 						path="/edit-post/:postId"
 						element={<EditPostForm token={token} />}
