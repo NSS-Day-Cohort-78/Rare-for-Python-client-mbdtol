@@ -49,7 +49,7 @@ export const EditPostForm = () => {
     };
 
     EditPost(editedPost).then(() => {
-      navigate(`/post-details`);
+      navigate(`/post/:postId`);
     });
   };
 
