@@ -6,6 +6,7 @@ import { MyPosts } from "../components/myposts/MyPosts"
 import { EditPostForm } from "../components/myposts/EditPost"
 import { PostDetails } from "../components/myposts/PostDetails"
 import { AllPosts } from "../components/myposts/AllPosts"
+import { DeletePostConfirm } from "../components/myposts/DeletePost"
 
 export const ApplicationViews = ({ token, setToken }) => {
 	return (
@@ -21,6 +22,10 @@ export const ApplicationViews = ({ token, setToken }) => {
 					<Route
 						path="/edit-post/:postId"
 						element={<EditPostForm token={token} />}
+					/>
+					<Route
+						path="/delete-post/:postId"
+						element={<DeletePostConfirm token={token} />}
 					/>
 				</Route>
 			</Routes>
