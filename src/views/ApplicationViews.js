@@ -6,7 +6,8 @@ import { MyPosts } from "../components/myposts/MyPosts"
 import { EditPostForm } from "../components/myposts/EditPost"
 import { PostDetails } from "../components/myposts/PostDetails"
 import { AllPosts } from "../components/myposts/AllPosts"
-import { NewPost, DeletePostConfirm  } from "../components/myposts/NewPost"
+import { NewPost } from "../components/myposts/NewPost"
+import { DeletePostConfirm } from "../components/myposts/DeletePost"
 
 export const ApplicationViews = ({ token, setToken }) => {
 	return (
