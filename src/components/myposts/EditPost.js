@@ -54,107 +54,115 @@ export const EditPostForm = () => {
   };
 
   return (
-    <>
-      <form className="box">
-        <fieldset>
-          <div>
-            <div>
-              <label>Title : </label>
+    <section className="columns is-centered">
+      <div className="column is-two-thirds">
+        <form>
+          <h1 className="title">Edit Post</h1>
+          
+          <div className="field">
+            <label className="label">Title</label>
+            <div className="control">
+              <input
+                className="input"
+                type="text"
+                required
+                value={post.title || ""}
+                placeholder={post.title}
+                onChange={(event) => {
+                  const copy = { ...post };
+                  copy.title = event.target.value;
+                  setPost(copy);
+                }}
+              />
             </div>
-            <input
-              type="text"
-              required
-              value={post.title || ""}
-              placeholder={post.title}
-              onChange={(event) => {
-                const copy = { ...post };
-                copy.title = event.target.value;
-                setPost(copy);
-              }}
-            />
           </div>
-        </fieldset>
-        <fieldset>
-          <div>
-            <div>
-              <label>Content : </label>
-            </div>
-            <textarea
-              required
-              value={post.content || ""}
-              placeholder={post.content}
-              onChange={(event) => {
-                const copy = { ...post };
-                copy.content = event.target.value;
-                setPost(copy);
-              }}
-            />
-          </div>
-        </fieldset>
-        <fieldset>
-          <div>
-            <div>
-              <label>Category : </label>
-            </div>
-            <select
-              id="category-select"
-              required
-              name="category"
-              value={post.category_id || ""}
-              placeholder={post.category_id}
-              onChange={(event) => {
-                const copy = { ...post };
-                copy.category_id = event.target.value;
-                setPost(copy);
-              }}
-            >
-              <option value="">Category</option>
-              {categoryOptions()}
-            </select>
-          </div>
-        </fieldset>
-        <fieldset>
-          <div>
-            <div>
-              <label>Header Image URL (optional) : </label>
-            </div>
-            <input
-              type="text"
-              value={post.image_url || ""}
-              placeholder={post.image_url || ""}
-              onChange={(event) => {
-                const copy = { ...post };
-                copy.image_url = event.target.value;
-                setPost(copy);
-              }}
-            />
-          </div>
-        </fieldset>
-        <div>
-          <button
-            className="button is-danger"
-            type="button"
-            onClick={() => navigate(-1)}
-          >
-            Cancel
-          </button>
 
-          <button
-            className="button is-link"
-            type="submit"
-            onClick={(event) => {
-              event.preventDefault();
-              if (post.title && post.content && post.category_id) {
-                handleEditPost(event);
-              } else {
-                window.alert("Title, Content, and Category required.");
-              }
-            }}
-          >
-            Save
-          </button>
-        </div>
-      </form>
-    </>
+          <div className="field">
+            <label className="label">Content</label>
+            <div className="control">
+              <textarea
+                className="textarea"
+                required
+                value={post.content || ""}
+                placeholder={post.content}
+                onChange={(event) => {
+                  const copy = { ...post };
+                  copy.content = event.target.value;
+                  setPost(copy);
+                }}
+              />
+            </div>
+          </div>
+
+          <div className="field">
+            <label className="label">Category</label>
+            <div className="control">
+              <div className="select">
+                <select
+                  id="category-select"
+                  required
+                  name="category"
+                  value={post.category_id || ""}
+                  placeholder={post.category_id}
+                  onChange={(event) => {
+                    const copy = { ...post };
+                    copy.category_id = event.target.value;
+                    setPost(copy);
+                  }}
+                >
+                  <option value="">Category</option>
+                  {categoryOptions()}
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div className="field">
+            <label className="label">Header Image URL (optional)</label>
+            <div className="control">
+              <input
+                className="input"
+                type="text"
+                value={post.image_url || ""}
+                placeholder={post.image_url || ""}
+                onChange={(event) => {
+                  const copy = { ...post };
+                  copy.image_url = event.target.value;
+                  setPost(copy);
+                }}
+              />
+            </div>
+          </div>
+
+          <div className="field is-grouped">
+            <div className="control">
+              <button
+                className="button is-danger"
+                type="button"
+                onClick={() => navigate(-1)}
+              >
+                Cancel
+              </button>
+            </div>
+            <div className="control">
+              <button
+                className="button is-primary"
+                type="submit"
+                onClick={(event) => {
+                  event.preventDefault();
+                  if (post.title && post.content && post.category_id) {
+                    handleEditPost(event);
+                  } else {
+                    window.alert("Title, Content, and Category required.");
+                  }
+                }}
+              >
+                Save
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
   );
 };
