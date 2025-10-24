@@ -21,7 +21,10 @@ export const AllPosts = ({ token }) => {
 							<h2 className="title is-4">{post.title}</h2>
 						</Link>
 						<p>{post.category}</p>
+						<Link to={`/profile/${post.user_id}`}>
 						<p>{post.author}</p>
+						</Link>
+						
 					</div>
 				) : null
 			)}
