@@ -58,7 +58,17 @@ export const CreatePost = (newPost) => {
 }
 
 export const DeletePost = (postId) => {
-  return fetch(`http://localhost:8088/posts/${postId}`, {
-    method: "DELETE"
-  })
+	return fetch(`http://localhost:8088/posts/${postId}`, {
+		method: "DELETE"
+	})
+}
+
+export const FetchPostsByUserProfile = (userId) => {
+	return fetch(`http://localhost:8088/posts?user_id=${userId}`, {
+		method: "GET",
+		headers: {
+			"Content-Type": "application/json",
+			Accept: "application/json"
+		}
+	}).then((res) => res.json())
 }

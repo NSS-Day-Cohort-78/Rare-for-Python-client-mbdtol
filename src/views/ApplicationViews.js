@@ -9,6 +9,7 @@ import { AllPosts } from "../components/myposts/AllPosts"
 import { NewPost } from "../components/myposts/NewPost"
 import { DeletePostConfirm } from "../components/myposts/DeletePost"
 import { AuthorProfile } from "../users/AuthorProfile"
+import { PostsByUserProfile } from "../components/myposts/PostsByUserProfile"
 
 export const ApplicationViews = ({ token, setToken }) => {
 	return (
@@ -22,7 +23,8 @@ export const ApplicationViews = ({ token, setToken }) => {
 					<Route path="/allposts" element={<AllPosts token={token} />} />
 					<Route path="/newpost" element={<NewPost token={token} />} />
 					<Route path="/post/:postId" element={<PostDetails token={token} />} />
-					<Route path="/profile/:userId" element={<AuthorProfile />}/>
+					<Route path="/profile/:userId" element={<AuthorProfile />} />
+					<Route path="/postsbyuser/:userId" element={<PostsByUserProfile />} />
 					<Route
 						path="/edit-post/:postId"
 						element={<EditPostForm token={token} />}
