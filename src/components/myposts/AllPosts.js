@@ -24,7 +24,7 @@ export const AllPosts = ({ token }) => {
 						<Link to={`/profile/${post.user_id}`}>
 						<p>{post.author}</p>
 						</Link>
-						
+
 					</div>
 				) : null
 			)}

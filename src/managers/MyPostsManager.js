@@ -72,3 +72,13 @@ export const FetchPostsByUserProfile = (userId) => {
 		}
 	}).then((res) => res.json())
 }
+
+export const FetchSearchTitles = (searchTerm) => {
+	return fetch(`http://localhost:8088/search-titles?search_term=${searchTerm}`, {
+		method: "GET",
+		headers: {
+			"Content-Type": "application/json",
+			Accept: "application/json"
+		}
+	}).then((res) => res.json())
+}
