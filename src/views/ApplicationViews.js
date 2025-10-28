@@ -10,6 +10,7 @@ import { NewPost } from "../components/myposts/NewPost"
 import { DeletePostConfirm } from "../components/myposts/DeletePost"
 import { AuthorProfile } from "../users/AuthorProfile"
 import { PostsByUserProfile } from "../components/myposts/PostsByUserProfile"
+import { SearchTitles } from "../components/myposts/SearchTitles"
 
 export const ApplicationViews = ({ token, setToken }) => {
 	return (
@@ -33,6 +34,10 @@ export const ApplicationViews = ({ token, setToken }) => {
 						path="/delete-post/:postId"
 						element={<DeletePostConfirm token={token} />}
 					/>
+					<Route
+						path="/search-titles"
+						element={<SearchTitles token={token} />}
+					/> 
 				</Route>
 			</Routes>
 		</>
