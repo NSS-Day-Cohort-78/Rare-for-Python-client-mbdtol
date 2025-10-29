@@ -11,6 +11,8 @@ import { DeletePostConfirm } from "../components/myposts/DeletePost"
 import { AuthorProfile } from "../users/AuthorProfile"
 import { PostsByUserProfile } from "../components/myposts/PostsByUserProfile"
 import { SearchTitles } from "../components/myposts/SearchTitles"
+import { TagManagerPage } from "../components/tags/TagManagerPage"
+import { CreateTagForm } from "../components/tags/CreateTag"
 
 export const ApplicationViews = ({ token, setToken }) => {
 	return (
@@ -26,6 +28,8 @@ export const ApplicationViews = ({ token, setToken }) => {
 					<Route path="/post/:postId" element={<PostDetails token={token} />} />
 					<Route path="/profile/:userId" element={<AuthorProfile />} />
 					<Route path="/postsbyuser/:userId" element={<PostsByUserProfile />} />
+					<Route path="/tag-manager" element={<TagManagerPage />} />
+					<Route path="/create-tag" element={<CreateTagForm />} />
 					<Route
 						path="/edit-post/:postId"
 						element={<EditPostForm token={token} />}
