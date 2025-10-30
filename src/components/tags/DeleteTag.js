@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { FetchPostById, DeletePost } from "../../managers/MyPostsManager";
+import { FetchTagById, DeleteTag } from "../../managers/TagManager";
 
-export const DeletePostConfirm = () => {
-  const { postId } = useParams();
-  const [post, setPost] = useState({});
+export const DeleteTagConfirm = () => {
   const navigate = useNavigate();
+  const { tagId } = useParams();
+  const [tag, setTag] = useState({});
 
   useEffect(() => {
-    FetchPostById(postId).then((postData) => {
-      setPost(postData);
+    FetchTagById(tagId).then((tagData) => {
+      setTag(tagData);
     });
-  }, [postId]);
+  }, [tagId]);
 
-  const HandleDelete = (postId) => {
-    DeletePost(postId).then(() => {
-      navigate(-2);
+  const HandleDelete = (tagId) => {
+    DeleteTag(tagId).then(() => {
+      navigate("/tag-manager");
     });
   };
 
@@ -26,7 +26,8 @@ export const DeletePostConfirm = () => {
           <div className="column is-half">
             <div className="box has-text-centered">
               <p className="subtitle is-6 mb-5">
-                Are you sure you want to delete "<strong>{post.title}</strong>"?
+                Are you sure you want to delete tag "
+                <strong>{tag.label}</strong>"?
               </p>
               <p className="has-text-grey mb-5">
                 This action cannot be undone.
@@ -44,7 +45,7 @@ export const DeletePostConfirm = () => {
                 <button
                   className="button is-danger is-medium"
                   type="button"
-                  onClick={() => HandleDelete(postId)}
+                  onClick={() => HandleDelete(tagId)}
                 >
                   {" "}
                   Delete Forever

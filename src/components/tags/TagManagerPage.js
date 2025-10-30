@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FetchAllTags } from "../../managers/TagManager";
 
 export const TagManagerPage = () => {
+    const navigate = useNavigate()
   const [tags, setTags] = useState([]);
 
   useEffect(() => {
@@ -18,15 +19,41 @@ export const TagManagerPage = () => {
                 <div className="column is-half">
                     <div className="box">
                         <h1 className="title">Tags</h1>
-                        <div className="tags">
+                        <div>
                             {tags.map((tag) => (
-                                <span key={tag.id} className="tag is-medium is-info is-light">
-                                    {tag.label}
-                                </span>
+                                <div key={tag.id} className="box mb-2">
+                                    <div className="level is-mobile">
+                                        <div className="level-left">
+                                            <div className="level-item">
+                                                <span className="tag is-medium is-info is-light">
+                                                    {tag.label}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div className="level-right">
+                                            <div className="level-item">
+                                                <button 
+                                                    className="button is-small is-info is-light"
+                                                    onClick={() => navigate(`/edit-tag/${tag.id}`)}
+                                                >
+                                                    ✏️
+                                                </button>
+                                            </div>
+                                            <div className="level-item">
+                                                <button 
+                                                    className="button is-small is-danger is-light"
+                                                    onClick={() => navigate(`/delete-tag/${tag.id}`)}
+                                                >
+                                                    🗑️
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             ))}
                         </div>
-                        <div className="mt-5">
-                            <Link to="/create-tag" className="button is-info is-medium">
+                        <div className="mt-4">
+                            <Link to="/create-tag" className="button is-info">
                                 Create Tag
                             </Link>
                         </div>
