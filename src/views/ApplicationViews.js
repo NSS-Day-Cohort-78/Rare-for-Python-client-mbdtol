@@ -38,10 +38,6 @@ export const ApplicationViews = ({ token, setToken }) => {
 						path="/delete-post/:postId"
 						element={<DeletePostConfirm token={token} />}
 					/>
-					<Route
-						path="/search-titles"
-						element={<SearchTitles token={token} />}
-					/> 
 				</Route>
 			</Routes>
 		</>
