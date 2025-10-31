@@ -14,22 +14,47 @@ export const AuthorProfile = () => {
 	}, [userId])
 
 	return (
-		<>
-			<div className="box">
-				{author.profile_image_url && (
-					<img src={author.profile_image_url} alt={author.username} />
-				)}
-				<h1 className="title is-4">
-					{author.first_name} {author.last_name}
-				</h1>
-				<h2>{author.username}</h2>
-				<p>{author.bio}</p>
-				<Link to={`/postsbyuser/${userId}`}>
-					<p>
-						{author.first_name} has written {author.post_count} post(s).
-					</p>
-				</Link>
-			</div>
-		</>
-	)
+  <section className="section">
+    <div className="container">
+      <div className="columns is-centered">
+        <div className="column is-two-thirds">
+          <div className="box">
+            <div className="media">
+              <div className="media-left">
+                {author.profile_image_url && (
+                  <figure className="image is-128x128">
+                    <img 
+                      className="is-rounded"
+                      src={author.profile_image_url} 
+                      alt={author.username} 
+                    />
+                  </figure>
+                )}
+              </div>
+              <div className="media-content">
+                <h1 className="title">
+                  {author.first_name} {author.last_name}
+                </h1>
+                <h2 className="subtitle is-6 has-text-grey">
+                  @{author.username}
+                </h2>
+                <div className="content">
+                  <p>{author.bio}</p>
+                </div>
+              </div>
+            </div>
+            
+            <hr />
+            
+            <div className="has-text-centered">
+              <Link to={`/postsbyuser/${userId}`} className="button is-info">
+                View {author.first_name}'s {author.post_count} Post{author.post_count !== 1 ? 's' : ''}
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
 }

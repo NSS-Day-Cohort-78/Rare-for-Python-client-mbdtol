@@ -43,3 +43,13 @@ export const EditTag = (editedTag) => {
 		body: JSON.stringify(editedTag)
 	})
 }
+
+export const UpdatePostTags = (changes) => {
+	return fetch(`http://localhost:8088/posts/${changes.post_id}/tags`, {
+		method: "PUT",
+		headers: {
+			"Content-Type": "application/json"
+		},
+		body: JSON.stringify(changes)
+	})
+}

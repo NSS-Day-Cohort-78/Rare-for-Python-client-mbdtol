@@ -49,8 +49,8 @@ export const EditTagForm = () => {
           </div>
           <div className="field">
             <div className="buttons">
-              <button className="button is-danger" type="button" onClick={() => navigate(-1)}>
-                Back
+              <button className="button is-light" type="button" onClick={() => navigate(-1)}>
+                Cancel
               </button>
               <button className="button is-info" type="submit">
                 Save Changes

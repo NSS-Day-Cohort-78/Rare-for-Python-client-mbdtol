@@ -40,15 +40,15 @@ export const NewPost = ({ token }) => {
 		setDropdownOpen(false)
 	}
 
-	const handleTagChange = (tagName) => {
-		if (selectedTags.includes(tagName)) {
-			// Remove tag if already selected
-			setSelectedTags(selectedTags.filter((tag) => tag !== tagName))
-		} else {
-			// Add tag if not selected
-			setSelectedTags([...selectedTags, tagName])
-		}
-	}
+	// const handleTagChange = (tagName) => {
+	// 	if (selectedTags.includes(tagName)) {
+	// 		// Remove tag if already selected
+	// 		setSelectedTags(selectedTags.filter((tag) => tag !== tagName))
+	// 	} else {
+	// 		// Add tag if not selected
+	// 		setSelectedTags([...selectedTags, tagName])
+	// 	}
+	// }
 
 	return (
 		<section className="columns is-centered">
@@ -63,16 +63,16 @@ export const NewPost = ({ token }) => {
 					</div>
 
 					<div className="field">
-						<label className="label">Image URL</label>
+						<label className="label">Header Image URL (optional)</label>
 						<div className="control">
-							<input className="input" type="text" ref={imageUrl} required />
+							<input className="input" type="text" ref={imageUrl} />
 						</div>
 					</div>
 
 					<div className="field">
 						<label className="label">Content</label>
 						<div className="control">
-							<input className="input" type="text" ref={content} required />
+							<textarea className="textarea" type="text" ref={content} required />
 						</div>
 					</div>
 
@@ -108,7 +108,7 @@ export const NewPost = ({ token }) => {
 						<input type="hidden" ref={category} required />
 					</div>
 
-					<div className="field">
+					{/* <div className="field">
 						<label className="label">Tags</label>
 						<div className="control">
 							<label className="checkbox">
@@ -120,7 +120,7 @@ export const NewPost = ({ token }) => {
 								Javascript
 							</label>
 						</div>
-					</div>
+					</div> */}
 
 					<div className="field">
 						<div className="control">
