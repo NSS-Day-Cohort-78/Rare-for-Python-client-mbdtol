@@ -40,11 +40,11 @@ export const CreateTagForm = () => {
                     <div className="field">
                         <div className="buttons">
                             <button 
-                                className="button is-danger"
+                                className="button is-light"
                                 type="button"
                                 onClick={() => navigate(-1)}
                             >
-                                Back
+                                Cancel
                             </button>
                             <button className="button is-info" type="submit">
                                 Create

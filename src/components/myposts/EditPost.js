@@ -78,6 +78,23 @@ export const EditPostForm = () => {
           </div>
 
           <div className="field">
+            <label className="label">Header Image URL (optional)</label>
+            <div className="control">
+              <input
+                className="input"
+                type="text"
+                value={post.image_url || ""}
+                placeholder={post.image_url || ""}
+                onChange={(event) => {
+                  const copy = { ...post };
+                  copy.image_url = event.target.value;
+                  setPost(copy);
+                }}
+              />
+            </div>
+          </div>
+
+          <div className="field">
             <label className="label">Content</label>
             <div className="control">
               <textarea
@@ -117,27 +134,10 @@ export const EditPostForm = () => {
             </div>
           </div>
 
-          <div className="field">
-            <label className="label">Header Image URL (optional)</label>
-            <div className="control">
-              <input
-                className="input"
-                type="text"
-                value={post.image_url || ""}
-                placeholder={post.image_url || ""}
-                onChange={(event) => {
-                  const copy = { ...post };
-                  copy.image_url = event.target.value;
-                  setPost(copy);
-                }}
-              />
-            </div>
-          </div>
-
           <div className="field is-grouped">
             <div className="control">
               <button
-                className="button is-danger"
+                className="button is-light"
                 type="button"
                 onClick={() => navigate(-1)}
               >
